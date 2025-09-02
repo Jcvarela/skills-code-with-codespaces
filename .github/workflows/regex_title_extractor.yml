@@ -1,8 +1,9 @@
 name: Regex Title Extractor
 
 run-name: >
-  Char[5]: '${{ inputs.input_string[5] }}' →
-  ${{ inputs.input_string[5] != '' && 'length >= 6' || 'length < 6' }}
+  Input: "${{ inputs.input_string }}" →
+  Char[4]: '${{ inputs.input_string[4] }}' →
+  ${{ inputs.input_string[4] != '' && 'length >= 5' || 'length < 5' }}
 
 on:
   workflow_dispatch:
