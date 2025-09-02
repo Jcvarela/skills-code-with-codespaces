@@ -9,11 +9,12 @@ on:
         type: string
 
 # ✅ run-name must be at root level
-run-name: ${{ contains(github.event.inputs.input_string, 'feature') && 'Run for Feature Branch' || 'Run for Other Branch' }}
+run-name: >
+  ${{ inputs.input_string[5] != '' && 'length >= 5' || 'length < 6' }}
 
 jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
       - name: Print Input
-        run: echo "Input was"
+        run: echo "Input was ${{ inputs.input_string }}"
