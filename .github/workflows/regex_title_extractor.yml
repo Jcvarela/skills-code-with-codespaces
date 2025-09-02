@@ -9,7 +9,7 @@ on:
         type: string
 
 # ✅ run-name must be at root level
-run-name: "Run for ${{ replace(github.event.inputs.input_string, 'TASK-', '') }}"
+run-name: ${{ contains(github.event.inputs.input_string, 'feature') && 'Run for Feature Branch' || 'Run for Other Branch' }}
 
 jobs:
   demo:
