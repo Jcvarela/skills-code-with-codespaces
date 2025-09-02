@@ -1,0 +1,18 @@
+name: Regex Title Extractor
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_string:
+        description: "Enter the string"
+        required: true
+        type: string
+
+# Example: strip "TASK-" prefix from input
+run-name: "Run for ${{ replace(github.event.inputs.input_string, 'TASK-', '') }}"
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Input was: ${{ github.event.inputs.input_string }}"
